@@ -1,7 +1,14 @@
+using ApiTemplate.DI;
+using ApiTemplate.Endpoints;
+using ApiTemplate.Shared;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IEndpoint, GetProductsEndpoint>();
+
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.MapEndpoints();
 
 app.Run();
 
